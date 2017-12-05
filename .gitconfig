@@ -1,0 +1,35 @@
+[core]
+	editor = code --wait
+	autocrlf = true
+[user]
+	name = Ronan Moriarty
+	email = ronan.moriarty@hotmail.co.uk
+[help]
+	autocorrect = 30
+[color]
+	ui = auto
+[alias]
+	a = add .
+	alias = --get-regexp ^alias\\.
+	c = commit -m
+	ca = commit --amend --no-edit
+	ce = config --global --edit
+	configedit = config --global --edit
+	d = diff
+	dc = diff --cached
+	f = fetch --prune
+	h = log --graph --oneline --all --pretty=format:\"%C(yellow)%h%Creset %C(magenta)(%cr)%Creset %C(blue)%cn%Creset %s %C(auto)%d%Creset\"
+	hist = log --graph --oneline --all --pretty=format:\"%C(yellow)%h%Creset %C(magenta)(%cr)%Creset %C(blue)%cn%Creset %s %C(auto)%d%Creset\"
+	lh = log --graph --oneline --pretty=format:\"%C(yellow)%h%Creset %C(magenta)(%cr)%Creset %C(blue)%cn%Creset %s %C(auto)%d%Creset\"
+	localhist = log --graph --oneline --pretty=format:\"%C(yellow)%h%Creset %C(magenta)(%cr)%Creset %C(blue)%cn%Creset %s %C(auto)%d%Creset\"
+	r = reset .
+	s = status
+	stat = status
+[push]
+	default = simple
+[merge]
+	tool = p4merge
+[mergetool "p4merge"]
+	path = C:/Program Files (x86)/Perforce/p4merge.exe
+[credential]
+	helper = wincred
