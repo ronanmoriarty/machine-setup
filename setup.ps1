@@ -8,6 +8,7 @@ choco install GoogleChrome -y
 choco install MsSqlServer2014Express -y
 choco install nodejs.install -y
 choco install nunit.install -y
+choco install nvm -y
 choco install nuget.commandline -y
 choco install poshgit -y
 choco install rabbitmq -y
