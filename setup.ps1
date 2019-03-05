@@ -1,5 +1,4 @@
 choco install 7zip.install -y
-choco install ConEmu -y
 choco install erlang -y
 choco install fiddler -y
 choco install git.install -y
