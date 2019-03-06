@@ -15,3 +15,13 @@ choco install rabbitmq -y
 choco install ruby -y
 choco install sql-server-management-studio -y
 choco install visualstudiocode -y
+
+$gitBinPath = "C:\Program Files\Git\bin"
+if (!(Test-Path "$gitBinPath\mintty.exe")) {
+    Write-Host "Installing mintty..."
+    Invoke-WebRequest -Uri 'https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mintty/mintty-1.1.3-msys.zip' -Outfile mintty-1.1.3-msys.zip
+    7z e -y .\mintty-1.1.3-msys.zip -o"$gitBinPath"
+    Remove-Item mintty-1.1.3-msys.zip
+} else {
+    Write-Host "Mintty already installed."
+}
