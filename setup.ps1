@@ -62,3 +62,17 @@ if(!(Test-Path "C:\Program Files (x86)\AWS SDK for .NET")) {
 } else {
     Write-Host "AWS Tools and SDK for .NET already installed."
 }
+
+if($null -eq $env:HOME) {
+    Write-Host "Setting HOME environment variable"
+    [System.Environment]::SetEnvironmentVariable('HOME', 'C:\users\ronan.moriarty', [System.EnvironmentVariableTarget]::User)
+} else {
+    Write-Host "HOME environment variable already set."
+}
+
+if($null -eq (Get-PSRepository -Name "PSGallery")) {
+    Write-Host "Installing PSGallery..."
+    Register-PSRepository -Name "PSGallery" -SourceLocation "https://www.powershellgallery.com/api/v2/" -InstallationPolicy Trusted
+} else {
+    Write-Host "PSGallery already installed."
+}
