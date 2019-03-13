@@ -31,3 +31,10 @@ if (!(Test-Path "$gitBinPath\mintty.exe")) {
 } else {
     Write-Host "Mintty already installed."
 }
+
+if($null -eq $env:HOME) {
+    Write-Host "Setting HOME environment variable"
+    [System.Environment]::SetEnvironmentVariable('HOME', 'C:\users\ronan.moriarty', [System.EnvironmentVariableTarget]::User)
+} else {
+    Write-Host "HOME environment variable already set."
+}
