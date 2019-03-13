@@ -76,3 +76,11 @@ if($null -eq (Get-PSRepository -Name "PSGallery")) {
 } else {
     Write-Host "PSGallery already installed."
 }
+
+if((Get-Command Install-Module).Version -lt "2.0.4") {
+    Write-Host "Updating PowerShellGet 2.0.4..."
+    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+    Install-Module -Name PowerShellGet -RequiredVersion 2.0.4 -Force
+} else {
+    Write-Host "PowerShellGet 2.0.4 already installed."
+}
