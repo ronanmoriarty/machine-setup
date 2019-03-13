@@ -1,4 +1,19 @@
 $gitBinPath = "C:\Program Files\Git\bin"
+$userDirectory = "C:\users\ronan.moriarty"
+
+function Install-Msi($filePath) {
+    $DataStamp = get-date -Format yyyyMMddTHHmmss
+    $logFile = "$filePath-$DataStamp.log"
+    $MSIArguments = @(
+        "/i"
+        ("""$filePath""")
+        "/qn"
+        "/norestart"
+        "/L*v"
+        $logFile
+    )
+    Start-Process "msiexec.exe" -ArgumentList $MSIArguments -Wait -NoNewWindow
+}
 
 if(!(Test-Path $gitBinPath)) {
     Write-Host "Installing chocolatey packages..."
@@ -34,7 +49,16 @@ if (!(Test-Path "$gitBinPath\mintty.exe")) {
 
 if($null -eq $env:HOME) {
     Write-Host "Setting HOME environment variable"
-    [System.Environment]::SetEnvironmentVariable('HOME', 'C:\users\ronan.moriarty', [System.EnvironmentVariableTarget]::User)
+    [System.Environment]::SetEnvironmentVariable('HOME', $userDirectory, [System.EnvironmentVariableTarget]::User)
 } else {
     Write-Host "HOME environment variable already set."
+}
+
+if(!(Test-Path "C:\Program Files (x86)\AWS SDK for .NET")) {
+    Write-Host "Installing AWS Tools and SDK for .NET..."
+    $msiFilePath = "$userDirectory\Downloads\AWSToolsAndSDKForNet.msi"
+    Invoke-WebRequest -Uri 'https://sdk-for-net.amazonwebservices.com/latest/AWSToolsAndSDKForNet.msi' -OutFile $msiFilePath
+    Install-Msi $msiFilePath
+} else {
+    Write-Host "AWS Tools and SDK for .NET already installed."
 }
