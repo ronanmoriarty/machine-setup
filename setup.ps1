@@ -32,6 +32,7 @@ if(!(Test-Path $gitBinPath)) {
     choco install poshgit -y
     choco install rabbitmq -y
     choco install ruby -y
+    choco install slack -y
     choco install sql-server-management-studio -y
     choco install visualstudiocode -y
 } else {
