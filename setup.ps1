@@ -25,6 +25,7 @@ if(!(Test-Path $gitBinPath)) {
     choco install git.install -y
     choco install GoogleChrome -y
     choco install MsSqlServer2014Express -y
+    choco install notepadplusplus.install -y
     choco install nodejs.install -y
     choco install nunit.install -y
     choco install nvm -y
