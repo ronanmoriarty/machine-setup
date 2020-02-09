@@ -1,0 +1,12 @@
+code --install-extension ms-vscode.csharp
+code --install-extension cake-build.cake-vscode
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-vscode.powershell
+code --install-extension ms-python.python
+code --install-extension ms-vscode-remote.remote-wsl
+code --install-extension ms-mssql.mssql
+code --install-extension fabiospampinato.vscode-todo-plus
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension ms-vscode.jscs
+code --install-extension coenraads.bracket-pair-colorizer
+code --install-extension formulahendry.auto-rename-tag
